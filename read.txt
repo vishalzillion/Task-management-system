@@ -1,0 +1,35 @@
+
+# read.txt
+
+This project implements a GraphQL API for a task management application using 
+Graphene Django.
+
+Models:
+- User - Default Django auth user model
+- Task - Represents a task with title, description, priority, status etc. 
+- Category - Task categories
+
+GraphQL Types:
+- UserType - GraphQL type for User model
+- TaskType - GraphQL type for Task model
+- CategoryType - GraphQL type for Category model
+
+Queries:
+- all_tasks - Returns list of tasks
+- search_tasks - Search tasks by title or description
+- weekly_stats - Get task statistics for a date range 
+
+Mutations:
+- create_user - Create a new user
+- create_task - Create a new task (only for superusers)
+- mark_task_completed - Mark a task as completed (only assigned users)
+- create_category - Create a category (only for superusers)
+
+Authentication:
+- GraphQL JWT is used for auth and returns JWT token on login
+- Login is required for most queries and mutations using @login_required
+
+The schema brings together the Query and Mutation classes.
+
+Overall, this implements the backend GraphQL API with authentication and permissions for a task management app. The front-end can consume this API to build the actual UI and workflows.
+
