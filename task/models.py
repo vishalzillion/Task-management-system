@@ -45,10 +45,10 @@ class Task(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     assigned_to = models.ForeignKey(User, on_delete=models.CASCADE)
     status =models.CharField(max_length=100,choices= status,default="pending")
-    created_at = models.DateTimeField(default=timezone.now())
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
-    created_at_week = models.IntegerField(default=datetime.date.today().isocalendar()[1])
+  
 
     def __str__(self):
         return self.title
